@@ -3,7 +3,7 @@ package paquete05;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-import paquete04.Estudiante;
+import paquete04.*;
 
 public class EjecutaEstudiante {
 
@@ -32,11 +32,54 @@ public class EjecutaEstudiante {
         ArrayList<Estudiante> estudiantes = new ArrayList<>();
         
         // inicio de solución
-        
-        
-        
-        
-        
+        contador = 0;
+        while (contador<4){
+            System.out.println("Tipo de Estudiante a ingresar\n"
+                    + "Ingrese (1) para Estudiante Presencial"
+                    + "Ingrese (2) para Estudiante Distancia");
+            tipoEstudiante = entrada.nextInt();
+            System.out.println("Ingrese los nombres del estudiante");
+            nombresEst = entrada.next();
+            System.out.println("Ingrese los apellidos del estudiante");
+            apellidosEst = entrada.next();
+            System.out.println("Ingrese la identificación del estudiante");
+            identificacionEst = entrada.next();
+            System.out.println("Ingrese la edad del estudiante");
+            edadEst = entrada.nextInt();
+            if(tipoEstudiante ==1){
+               EstudiantePresencial estudianteP = new EstudiantePresencial();
+               System.out.println("Ingrese el número de créditos");
+                numeroCreds = entrada.nextInt();
+                System.out.println("Ingrese el costo de cada créditos");
+                costoCred = entrada.nextDouble();
+                
+                estudianteP.establecerNombresEstudiante(nombresEst);
+                estudianteP.establecerApellidoEstudiante(apellidosEst);
+                estudianteP.establecerIdentificacionEstudiante(identificacionEst);
+                estudianteP.establecerEdadEstudiante(edadEst);
+                estudianteP.establecerNumeroCreditos(numeroCreds);
+                estudianteP.establecerCostoCredito(costoCred);
+                
+                estudiantes.add(estudianteP);
+            } else{
+                EstudianteDistancia estudianteD = new EstudianteDistancia();
+                System.out.println("Ingrese el número de asignaturas");
+                    numeroAsigs = entrada.nextInt();
+                    System.out.println("Ingrese el costo de cada cada asignatura");
+                    costoAsig = entrada.nextDouble();
+                
+                estudianteD.establecerNombresEstudiante(nombresEst);
+                estudianteD.establecerApellidoEstudiante(apellidosEst);
+                estudianteD.establecerIdentificacionEstudiante(identificacionEst);
+                estudianteD.establecerEdadEstudiante(edadEst);
+                estudianteD.establecerNumeroAsginaturas(numeroAsigs);
+                estudianteD.establecerCostoAsignatura(costoAsig);
+                
+                estudiantes.add(estudianteD);
+            }
+            contador +=1;
+        } 
+         
         // ciclo que permite comprobar el polimorfismo
         // este código no debe ser modificado.
         for (int i = 0; i < estudiantes.size(); i++) {
